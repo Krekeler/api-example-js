@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<title>Documentchain example - store file hash on blockchain</title>
+	<script type="text/javascript" src="documentchain.js"></script>
+</head>
+
+<body>
+	<p><a href="https://documentchain.org/legal-notice/">About us</a> | <a href="https://documentchain.org/privacypolicy/">Data Protection</a></p>
+	<hr>
+	<form name="FileForm">
+		<div>
+			<input id="FileInput" type="file" name="FilesToExecute" onchange="processFile();"><br/>
+			<div>File size: <span id="FileSize"> </span></div>
+		</div>
+	</form>
+	<div>Attribute hash: <span id="AttrHash"> </span></div>
+	<div>Owner hash: <span id="OwnerHash"> </span></div>
+	<div>File hash: <span id="FileHash"> </span></div>
+	<hr>
+	<div>Transaction: <span id="Transaction"> </span><br>
+	<span id="Explorer"> </span></div>
+</body>
+
+</html>
