@@ -9,19 +9,44 @@
 
 <body>
 	<p><a href="https://documentchain.org/legal-notice/">About us</a> | <a href="https://documentchain.org/privacypolicy/">Data Protection</a></p>
+	<h1>Documentchain Example</h1>
+
 	<hr>
-	<form name="FileForm">
+	<h2>1. Store Hashes on Blockchain</h2>
+	<form name="formStore">
 		<div>
-			<input id="FileInput" type="file" name="FilesToExecute" onchange="processFile();"><br/>
+			<input id="FileInput" type="file" name="FilesToExecute" onchange="secureFile();"><br>
+			<br>
 			<div>File size: <span id="FileSize"> </span></div>
 		</div>
 	</form>
 	<div>Attribute hash: <span id="AttrHash"> </span></div>
 	<div>Owner hash: <span id="OwnerHash"> </span></div>
 	<div>File hash: <span id="FileHash"> </span></div>
+	<br>
+	<div>Transaction: <span id="Transaction"> </span></div>
+
 	<hr>
-	<div>Transaction: <span id="Transaction"> </span><br>
-	<span id="Explorer"> </span></div>
+	<h2>2. Mining</h2>
+	<p>Wait until the transaction has been mined in a block. On average, this takes 3 minutes, but it can vary significantly.<br>
+	<span id="Explorer"> </span></p>
+
+	<hr>
+	<h2>3. Document Revision</h2>
+	<p>Select the same file to start the revision. In this process, the hashes are loaded from the blockchain and compared with the current hashes.</p>
+	<form name="formRevision">
+		<div>
+			<input id="TxInput2"   type="text" name="Transaction" placeholder="Transaction ID" size="64"> &nbsp; &nbsp;
+			<input id="FileInput2" type="file" name="FilesToExecute2" onchange="revisionFile();"><br>
+			<br>
+			<div>File size: <span id="FileSize2"> </span></div>
+		</div>
+	</form>
+	<div>Attribute hash: <span id="AttrHash2"> </span></div>
+	<div>Owner hash: <span id="OwnerHash2"> </span></div>
+	<div>File hash: <span id="FileHash2"> </span></div>
+	<br>
+	<div>Confirmations: <span id="Confirmations2"> </span><br>
 </body>
 
 </html>
