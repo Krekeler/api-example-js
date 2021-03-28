@@ -4,6 +4,7 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 	<title>Documentchain example - store file hash on blockchain</title>
+	<script type="text/javascript" src="hash-index.js"></script>
 	<script type="text/javascript" src="documentchain.js"></script>
 </head>
 
@@ -22,6 +23,7 @@
 	</form>
 	<div>Attribute hash: <span id="AttrHash"> </span></div>
 	<div>Owner hash: <span id="OwnerHash"> </span></div>
+	<div>Index hash: <span id="IndexHash"> </span></div>
 	<div>File hash: <span id="FileHash"> </span></div>
 	<br>
 	<div>Transaction: <span id="Transaction"> </span></div>
@@ -33,20 +35,34 @@
 
 	<hr>
 	<h2>3. Document Revision</h2>
+	<h3>3a. With Transaction ID</h3>
 	<p>Select the same file to start the revision. In this process, the hashes are loaded from the blockchain and compared with the current hashes.</p>
 	<form name="formRevision">
 		<div>
-			<input id="TxInput2"   type="text" name="Transaction" placeholder="Transaction ID" size="64"> &nbsp; &nbsp;
-			<input id="FileInput2" type="file" name="FilesToExecute2" onchange="revisionFile();"><br>
+			<input id="TxInput2"   type="text" name="Transaction" placeholder="Transaction ID" size="64" disabled="disabled"> &nbsp; &nbsp;
+			<input id="FileInput2" type="file" name="FilesToExecute2" disabled="disabled" onchange="revisionFile();"><br>
 			<br>
 			<div>File size: <span id="FileSize2"> </span></div>
 		</div>
 	</form>
+	<br>
+	<div>Confirmations: <span id="Confirmations2"> </span></div>
 	<div>Attribute hash: <span id="AttrHash2"> </span></div>
 	<div>Owner hash: <span id="OwnerHash2"> </span></div>
+	<div>Index hash: <span id="IndexHash2"> </span></div>
 	<div>File hash: <span id="FileHash2"> </span></div>
+
 	<br>
-	<div>Confirmations: <span id="Confirmations2"> </span><br>
+	<h3>3b. With Index Hash</h3>
+	<p>In this example we have stored an index hash. This allows a document revision without transaction ID.</p>
+	<ul>
+		<li>Open the block explorer on <a href="https://documentchain.org/explorer/?testnet=true#dest">documentchain.org</a>
+		or <a href="https://explorer.dms.cash/?testnet=true">dms.cash</a></li>
+		<li>Drag&amp;drop the file into the search field.</li>
+	</ul>
+	<p>The web browser calculates the index hash again and starts a blockchain search for it.
+	If transactions were found, they will be listed.
+	Otherwise, you will see a message like <q>neither an address nor a document</q>.</p>
 </body>
 
 </html>
